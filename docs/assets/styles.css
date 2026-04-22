@@ -1,0 +1,343 @@
+@import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;700&family=Share+Tech+Mono&display=swap");
+
+:root {
+  --bg: #04070d;
+  --bg-soft: #0a1221;
+  --surface: rgba(8, 17, 30, 0.85);
+  --line: rgba(89, 232, 255, 0.3);
+  --text: #d8f5ff;
+  --text-soft: #8cc4d6;
+  --accent: #59e8ff;
+  --accent-hot: #36ff9f;
+  --danger: #ff4b7a;
+  --max: 1080px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Chakra Petch", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 10% 10%, rgba(54, 255, 159, 0.18), transparent 34%),
+    radial-gradient(circle at 90% 0%, rgba(89, 232, 255, 0.22), transparent 30%),
+    linear-gradient(150deg, #04070d 0%, #061227 40%, #04070d 100%);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+.noise-layer {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  opacity: 0.08;
+  z-index: 999;
+  background-image: repeating-radial-gradient(circle at 0 0, #fff 0.5px, transparent 1.2px);
+  mix-blend-mode: soft-light;
+}
+
+.hero {
+  min-height: 88vh;
+  padding: 1.2rem 1.2rem 5rem;
+  position: relative;
+}
+
+.nav-shell,
+.hero-inner,
+.section,
+.footer {
+  width: min(100%, var(--max));
+  margin-inline: auto;
+}
+
+.nav-shell {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid var(--line);
+  background: rgba(5, 11, 21, 0.85);
+  backdrop-filter: blur(4px);
+  padding: 0.8rem 1rem;
+}
+
+.logo {
+  text-decoration: none;
+  color: var(--text);
+  display: grid;
+  gap: 0.1rem;
+}
+
+.logo-jp {
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.logo-en {
+  color: var(--text-soft);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+}
+
+.cta {
+  text-decoration: none;
+  color: #031018;
+  background: var(--accent);
+  padding: 0.5rem 0.9rem;
+  font-weight: 700;
+}
+
+.hero-inner {
+  margin-top: 4.5rem;
+}
+
+.eyebrow,
+.section-code,
+.term,
+.terminal,
+.footer,
+.cta {
+  font-family: "Share Tech Mono", monospace;
+}
+
+.eyebrow {
+  color: var(--accent-hot);
+  letter-spacing: 0.22em;
+  margin-bottom: 0.4rem;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: clamp(2rem, 8vw, 4.8rem);
+  max-width: 12ch;
+}
+
+.glitch {
+  position: relative;
+  text-shadow: 0.06em 0 0 rgba(89, 232, 255, 0.8), -0.05em 0 0 rgba(255, 75, 122, 0.7);
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.glitch::before {
+  clip-path: polygon(0 12%, 100% 12%, 100% 44%, 0 44%);
+  transform: translate(0.04em, -0.02em);
+  color: rgba(89, 232, 255, 0.65);
+}
+
+.glitch::after {
+  clip-path: polygon(0 60%, 100% 60%, 100% 100%, 0 100%);
+  transform: translate(-0.03em, 0.03em);
+  color: rgba(255, 75, 122, 0.55);
+}
+
+.lead {
+  font-size: clamp(1rem, 3vw, 1.35rem);
+  max-width: 58ch;
+  margin-top: 1rem;
+  color: var(--text-soft);
+}
+
+.lead span {
+  display: block;
+  margin-top: 0.35rem;
+  color: var(--text);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1.4rem;
+}
+
+.button {
+  text-decoration: none;
+  font-weight: 700;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--accent);
+  transition: 180ms ease;
+}
+
+.button.solid {
+  background: linear-gradient(120deg, var(--accent), var(--accent-hot));
+  color: #021015;
+}
+
+.button.ghost {
+  color: var(--accent);
+  background: transparent;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(54, 255, 159, 0.22);
+}
+
+.section {
+  margin-top: 3rem;
+  padding: 1.4rem;
+  border: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.section-head p {
+  margin: 0.45rem 0 0;
+  color: var(--text-soft);
+}
+
+.section-code {
+  color: var(--accent-hot);
+  letter-spacing: 0.2em;
+}
+
+.grid {
+  margin-top: 1.2rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.grid.two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid.three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.card,
+.panel,
+.terminal,
+.admission-box {
+  border: 1px solid var(--line);
+  background: rgba(5, 12, 22, 0.85);
+  padding: 1rem;
+}
+
+.card h3,
+.panel h3 {
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.timeline {
+  position: relative;
+  margin-top: 1.2rem;
+  display: grid;
+  gap: 0.9rem;
+}
+
+.line {
+  position: absolute;
+  left: 0.36rem;
+  top: 0.9rem;
+  bottom: 0.9rem;
+  width: 1px;
+  background: var(--line);
+}
+
+.node {
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.node::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.45rem;
+  width: 0.72rem;
+  height: 0.72rem;
+  border-radius: 999px;
+  background: var(--accent-hot);
+  box-shadow: 0 0 16px rgba(54, 255, 159, 0.75);
+}
+
+.term {
+  color: var(--danger);
+  margin: 0;
+  letter-spacing: 0.15em;
+}
+
+.terminal {
+  font-size: 0.95rem;
+}
+
+.terminal span {
+  color: var(--accent-hot);
+}
+
+.footer {
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  color: var(--text-soft);
+  text-align: center;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 500ms ease, transform 500ms ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 860px) {
+  .grid.two,
+  .grid.three {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    min-height: auto;
+    padding-bottom: 2rem;
+  }
+
+  .hero-inner {
+    margin-top: 2.5rem;
+  }
+
+  .nav-shell {
+    gap: 0.7rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
